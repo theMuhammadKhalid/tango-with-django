@@ -4,10 +4,14 @@
 
 from django.http import HttpResponse
 
+from django.shortcuts import render
+
+
 def index(request):
-    return HttpResponse("Hey there ! I am Muhammad Khalid"
-                        + "<br> <a href='/rango/about/'>Go to About</a>")
+    context_dict = {'boldMessage': "Crunchy, creamy, cookie, candy, cupcake !"}
+    return render(request, 'rango/index.html', context=context_dict)
+
 
 def about(request):
-    return HttpResponse("This is about page."
-                        +"<br> <a href='/rango/'>Back to Index</a>")
+    context_dict = {'myName': "Muhammad Khalid"}
+    return render(request, 'rango/about.html', context=context_dict)
