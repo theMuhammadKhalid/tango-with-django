@@ -20,7 +20,11 @@ from django.conf.urls import include
 from django.conf import settings
 from django.conf.urls.static import static
 
+from rango.views import MyRegistrationView
+
 urlpatterns = [
     url('rango/', include('rango.urls')),
     url('admin/', admin.site.urls),
+    url('accounts/register/', MyRegistrationView.as_view(), name='registration_register'),
+    url('accounts/', include('registration.backends.simple.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
