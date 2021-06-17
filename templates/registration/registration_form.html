@@ -1,9 +1,19 @@
 {% extends "rango/base.html" %}
 {% block body_block %}
-    <h1>Register Here</h1>
-    <form method="post" action=".">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit" />
-    </form>
+    <div class="registerContainer">
+        <h1 class="registerText">Register Here</h1>
+        <form class="registerForm" method="post" action=".">
+            {% csrf_token %}
+            <label for="id_username" class="form-label">Username</label>
+            <input type="text" name="username" maxlength="150" class="form-control" id="id_username" placeholder="Only Letters, digits and @/./+/-/_  are allowed">
+            <label for="id_email" class="form-label">E-mail</label>
+            <input type="email" name="email" class="form-control" id="id_email">
+            <label for="id_password1" class="form-label">Password</label>
+            <input type="password" name="password1" autocomplete="new-password" class="form-control" id="id_password1">
+            <label for="id_password2" class="form-label">Confirm Password</label>
+            <input type="password" name="password2" autocomplete="new-password" class="form-control" id="id_password2" placeholder="Enter the same password as before" >
+            <button class="btn btn-primary btn-block" type="submit" value="Submit" />Register</button>
+        </form>
+    </div>
 {% endblock %}
+{% block sidebar_block %}{% endblock %}

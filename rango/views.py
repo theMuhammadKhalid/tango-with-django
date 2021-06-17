@@ -16,6 +16,8 @@ from datetime import datetime
 
 from registration.backends.simple.views import RegistrationView
 
+from django.shortcuts import redirect
+
 def index(request):
     request.session.set_test_cookie()
     category_list = Category.objects.order_by('-likes')[:5]
@@ -41,7 +43,7 @@ def show_category(request, category_name_slug):
     context_dict = {}
     try:
         category = Category.objects.get(slug=category_name_slug)
-        pages = Page.objects.filter(category=category)
+        pages = Page.objects.filter(category=category).order_by('-views')
         context_dict['pages'] = pages
         context_dict['category'] = category
 
@@ -168,3 +170,20 @@ def visitor_cookie_handler(request):
 class MyRegistrationView(RegistrationView):
     def get_success_url(self, user):
         return '/rango/'
+
+def track_url(request):
+    page_id = None
+    url = '/rango/'
+    if request.method == 'GET':
+        if 'page_id' in request.GET:
+            page_id = request.GET['page_id']
+
+            try:
+                page = Page.objects.get(id=page_id)
+                page.views = page.views + 1
+                page.save()
+                url = page.url
+            except:
+                pass
+    return redirect(url)
+                
