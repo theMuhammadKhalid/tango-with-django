@@ -18,6 +18,7 @@ from registration.backends.simple.views import RegistrationView
 
 from django.shortcuts import redirect
 
+# index view
 def index(request):
     request.session.set_test_cookie()
     category_list = Category.objects.order_by('-likes')[:5]
