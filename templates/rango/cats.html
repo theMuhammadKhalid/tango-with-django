@@ -1,11 +1,12 @@
-<ul>
-	{% if cats %}
-		{% for c in cats %}
-		    {% if c == act_cat %}
-		        <li><strong><a href="{% url 'rango:show_category' c.slug %}">{{ c.name }}</a></strong></li>
-		    {% else  %}
-		         <li><a href="{% url 'rango:show_category' c.slug %}">{{ c.name }}</a></li>
-		    {% endif %}
-		{% endfor %}
-	{% endif %}
-</ul>
+<h3 class="mt-4"> Category List </h3>
+{% if cats %}
+{% for c in cats %}
+{% if c == act_cat %}
+<span class="badge bg-success mt-2"><a href="{% url 'rango:show_category' c.slug %}"
+		style="color: white; text-decoration: none; cursor: pointer; font-size: 18px;">{{ c.name }}</a></span>
+{% else %}
+<span class="badge bg-success mt-2"><a href="{% url 'rango:show_category' c.slug %}"
+		style="color: white; text-decoration: none; cursor: pointer; font-size: 18px;">{{ c.name }}</a></span>
+{% endif %}
+{% endfor %}
+{% endif %}

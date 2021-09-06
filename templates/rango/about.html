@@ -1,13 +1,34 @@
 {% extends 'rango/base.html' %}
 
+{% load static %}
+
 {% block title_block %}
 About
 {% endblock %}
 
 {% block body_block %}
-    <p>This is about page</p>
-    <p>This tutorial has been put together by {{myName}}</p>
-    <img src='{{MEDIA_URL}}cat.jpg' alt="cat image" width="500px">
-    <br />
-    <a href="{% url 'rango:index' %}">Back to Index</a>
-{% endblock  %}
+<div class="container-fluid mt-4">
+    <div class="card mb-3">
+        <div class="row g-0">
+            <div class="col-md-4">
+                <img src='{% static "images/rango.jpg" %}' class="img-fluid rounded-start" alt="cat image">
+            </div>
+            <div class="col-md-8">
+                <div class="card-body">
+                    <h5 class="card-title">Rango</h5>
+                    <p class="card-text">Hi, I am Rango. A chameleon who has lived as a sheltered family pet finds
+                        himself
+                        in the grip of an identity crisis. Rango wonders how to stand out when it is his nature to blend
+                        in. When he accidentally winds up in a frontier town called Dirt, he takes the first step on a
+                        transformational journey as the town's new sheriff. Though at first Rango only role-plays, a
+                        series of thrilling situations and outrageous encounters forces him to become a real hero.</p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <p>Made with ❤️ by <strong>{{myName}}</strong> with the help of <img
+            src="https://static.djangoproject.com/img/logos/django-logo-positive.png" alt="django" width="50px"> framework</p>
+</div>
+
+{% endblock %}

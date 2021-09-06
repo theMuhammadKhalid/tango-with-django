@@ -4,6 +4,14 @@
   margin-left: 15px;
 }
 
+.rangoSays {
+  font: 60px Arial;
+}
+
+.rangoMsg {
+  font: 30px Arial;
+}
+
 .landingHeader {
   background-color: rgb(228, 228, 228);
   max-width: 100%;
@@ -15,12 +23,12 @@
   margin: 25px;
 }
 
-.rangoSays {
-  font: 60px Arial;
-}
-
-.rangoMsg {
-  font: 30px Arial;
+.addCategory,
+.addPage {
+  background-color: rgb(228, 228, 228);
+  width: 100%;
+  min-height: calc(100vh - 70px);
+  padding: 20px;
 }
 
 @media screen and (max-width: 500px) {
@@ -33,12 +41,14 @@
   }
 }
 
-.loginContainer, .registerContainer{
+.loginContainer,
+.registerContainer {
   background-color: rgb(228, 228, 228);
   min-height: calc(100vh - 70px);
 }
 
-.loginForm, .registerForm{
+.loginForm,
+.registerForm {
   max-width: 350px;
   margin: auto;
 }
@@ -56,17 +66,17 @@
   margin-bottom: 20px;
 }
 
-.loginText{
+.loginText {
   font: 70px Arial;
   padding: 50px;
 }
 
-.registerText{
+.registerText {
   font: 70px Arial;
   padding: 30px;
 }
 
-.goToRegister{
+.goToRegister {
   max-width: 300px;
   margin: auto;
   margin-top: 10px;
